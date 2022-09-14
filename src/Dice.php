@@ -2,7 +2,8 @@
 
 namespace App;
 
-class Dice{
+class Dice
+{
     private $face;
     public $id;
 
@@ -12,7 +13,7 @@ class Dice{
     }
     public function roll()
     {
-        $this->face = rand(1,6);
+        $this->face = rand(1, 6);
         return $this;
     }
 

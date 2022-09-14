@@ -1,11 +1,25 @@
 <?php
 namespace App;
-class Player{
+class Player
+{
     
     private $dice = [];
 
     private $score = 0;
     
+    public $id;
+
+    public function __construct()
+    {
+        $this->id = uniqid();   
+    }
+    
+    public function getDice()
+    {
+        return $this->dice;
+    }
+
+
     public function addDice(Dice $dice)
     {
         $this->dice[$dice->id] = $dice;
@@ -69,6 +83,19 @@ class Player{
         }
 
         return $results;
+    }
+
+
+
+    public function setDiceResults($results)
+    {        
+        $i = 0;
+        
+        foreach ($this->dice as $dice)
+        {
+            $dice->setFace($results[$i]);
+            $i++;
+        }
     }
 }
  
